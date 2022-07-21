@@ -6,13 +6,18 @@ from .models import Category, Notes
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        exclude = ('id',)
+        fields = '__all__'
 
 
 class NotesSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+
     class Meta:
         model = Notes
-        exclude = ('id',)
-        expandable_fields = {
-            "category": CategorySerializer
-        }
+        fields = '__all__'
+
+
+class AddNoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notes
+        fields = '__all__'

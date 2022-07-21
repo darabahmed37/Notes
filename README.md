@@ -49,4 +49,17 @@ To Get, Update, Delete one single note use this end point
 
 ``http://127.0.0.1:8000/notes/1/``
 
-where as 1 is the Primary key
+whereas 1 is the Primary key
+
+Now to Add A new Notes 
+
+``http://127.0.0.1:8000/notes/new/``
+
+```
+{
+    "information": "",
+    "category": null
+}
+```
+
+pass this in Request Body
